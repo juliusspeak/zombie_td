@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1ynne4urbm22"
-path.bptc="res://.godot/imported/panel.png-bf09f26ef4623d3cf26aee8fa0cb1dce.bptc.ctex"
+uid="uid://kf8c8nqs348j"
+path.bptc="res://.godot/imported/sfx.png-cabf154be9340eb552ac889aa0d240c0.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/ui/panel.png"
-dest_files=["res://.godot/imported/panel.png-bf09f26ef4623d3cf26aee8fa0cb1dce.bptc.ctex"]
+source_file="res://assets/images/ui/sfx.png"
+dest_files=["res://.godot/imported/sfx.png-cabf154be9340eb552ac889aa0d240c0.bptc.ctex"]
 
 [params]
 

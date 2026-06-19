@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1ynne4urbm22"
-path.bptc="res://.godot/imported/panel.png-bf09f26ef4623d3cf26aee8fa0cb1dce.bptc.ctex"
+uid="uid://dl2e7xdrkf0bu"
+path.bptc="res://.godot/imported/discordHover.png-a1977e641025f8b3ecaad5715b1f946a.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/ui/panel.png"
-dest_files=["res://.godot/imported/panel.png-bf09f26ef4623d3cf26aee8fa0cb1dce.bptc.ctex"]
+source_file="res://assets/images/ui/discordHover.png"
+dest_files=["res://.godot/imported/discordHover.png-a1977e641025f8b3ecaad5715b1f946a.bptc.ctex"]
 
 [params]
 
