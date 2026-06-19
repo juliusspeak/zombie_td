@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://b5jwab2dhkrfn"]
+
+[ext_resource type="Script" uid="uid://ciqlt301nf4f4" path="res://objects/zombie/zombie.gd" id="1_eu5is"]
+[ext_resource type="PackedScene" uid="uid://cy4wum7jlvyby" path="res://assets/models/zobmie.glb" id="2_mytkl"]
+[ext_resource type="Texture2D" uid="uid://bn0m2erew313b" path="res://assets/models/zobmie_zombie.png" id="3_qhg6p"]
+[ext_resource type="Texture2D" uid="uid://cnq0tc4gpalqa" path="res://assets/models/zobmie_roughnes.png" id="4_kk4gh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i16c4"]
+resource_local_to_scene = true
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("3_qhg6p")
+metallic_texture = ExtResource("4_kk4gh")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_kk4gh")
+roughness_texture_channel = 1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8psf6"]
+height = 1.67765
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mytkl"]
+height = 1.68555
+radius = 0.693848
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mytkl"]
+transparency = 1
+albedo_color = Color(0.68, 0, 0, 0.796078)
+emission = Color(0.41, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mytkl"]
+radius = 0.125
+height = 0.25
+radial_segments = 12
+rings = 4
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mytkl"]
+resource_local_to_scene = true
+size = Vector2(1.5, 0.205)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhg6p"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+billboard_mode = 1
+
+[node name="Zombie" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "model", "anim_player", "blood_particle", "lifebar", "mesh_for_mat") groups=["mob"]]
+collision_layer = 2
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_eu5is")
+nav_agent = NodePath("NavigationAgent3D")
+model = NodePath("zobmie")
+anim_player = NodePath("zobmie/AnimationPlayer")
+blood_particle = NodePath("blood_particle")
+lifebar = NodePath("lifebar")
+hp = 150
+reward = 4
+mesh_for_mat = NodePath("zobmie/Armature/Skeleton3D/l_arm/l_arm")
+
+[node name="zobmie" parent="." instance=ExtResource("2_mytkl")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.669229, 0.0871482)
+
+[node name="Skeleton3D" parent="zobmie/Armature" index="0"]
+bones/0/rotation = Quaternion(-0.16557, 4.19379e-25, -3.6764e-17, 0.986198)
+bones/1/rotation = Quaternion(0.854956, -0.229085, 0.120447, 0.449515)
+bones/3/rotation = Quaternion(0.827566, 0.183467, -0.11483, 0.517965)
+bones/5/position = Vector3(-0.299253, -0.615603, -1.3411e-07)
+bones/5/rotation = Quaternion(0.594333, 0, 1.31968e-16, 0.804219)
+bones/7/position = Vector3(0.294181, -0.595315, -1.3411e-07)
+bones/7/rotation = Quaternion(-0.261817, -3.79704e-17, 5.17604e-17, 0.965117)
+bones/9/rotation = Quaternion(0.148474, -4.18226e-25, 3.29678e-17, 0.988916)
+
+[node name="l_arm" parent="zobmie/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, -2.98023e-07, -3.97227e-07, -3.49577e-07, -0.266746, -0.963767, 3.35791e-09, 0.963767, -0.266746, 2.38419e-07, 0.428397, -0.456116)
+
+[node name="l_arm" parent="zobmie/Armature/Skeleton3D/l_arm" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i16c4")
+
+[node name="r_arm" parent="zobmie/Armature/Skeleton3D" index="1"]
+transform = Transform3D(1, -5.96046e-08, 1.12664e-07, 8.32281e-08, -0.119362, -0.992851, 5.34875e-08, 0.992851, -0.119362, 5.96046e-08, 0.366155, -0.453825)
+
+[node name="r_arm" parent="zobmie/Armature/Skeleton3D/r_arm" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i16c4")
+
+[node name="r_leg" parent="zobmie/Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, -1.79339e-16, 9.11206e-17, 1.79339e-16, 0.589626, -0.807676, 9.1121e-17, 0.807676, 0.589626, 0, -0.218876, 0.698245)
+
+[node name="r_leg" parent="zobmie/Armature/Skeleton3D/r_leg" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i16c4")
+
+[node name="l_leg" parent="zobmie/Armature/Skeleton3D" index="3"]
+transform = Transform3D(1, -2.36077e-17, -5.32445e-17, 5.57951e-17, 0.650555, 0.759459, 1.67094e-17, -0.759459, 0.650555, 5.96046e-08, -0.17539, -0.257706)
+
+[node name="l_leg" parent="zobmie/Armature/Skeleton3D/l_leg" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i16c4")
+
+[node name="head" parent="zobmie/Armature/Skeleton3D" index="4"]
+transform = Transform3D(1, 7.68631e-18, 1.33031e-19, -7.68631e-18, 0.999401, 0.034615, 1.33107e-19, -0.034615, 0.999401, 4.06502e-17, -0.0340039, -0.183072)
+
+[node name="head" parent="zobmie/Armature/Skeleton3D/head" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i16c4")
+
+[node name="body" parent="zobmie/Armature/Skeleton3D" index="5"]
+transform = Transform3D(1, 7.25132e-17, 1.2174e-17, -7.25132e-17, 0.945173, 0.32657, 1.2174e-17, -0.32657, 0.945173, 0, 0, 0)
+
+[node name="body" parent="zobmie/Armature/Skeleton3D/body" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i16c4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999966, -0.00829022, 0, 0.00829022, 0.999966, 0, 0.835956, 0)
+shape = SubResource("CapsuleShape3D_8psf6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="damage_area" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="damage_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.842773, 0)
+shape = SubResource("CylinderShape3D_mytkl")
+
+[node name="blood_particle" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897658, 0)
+material_override = SubResource("StandardMaterial3D_mytkl")
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("SphereMesh_mytkl")
+direction = Vector3(0, 1, 0)
+spread = 136.26
+gravity = Vector3(0, -40, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_min = 0.2
+
+[node name="lifebar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
+visible = false
+mesh = SubResource("PlaneMesh_mytkl")
+surface_material_override/0 = SubResource("StandardMaterial3D_qhg6p")
+
+[connection signal="body_entered" from="damage_area" to="." method="_on_damage_area_body_entered"]
+
+[editable path="zobmie"]

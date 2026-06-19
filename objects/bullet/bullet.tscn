@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://bx42smfmbblhg"]
+
+[ext_resource type="Script" uid="uid://63b8y6srj4uw" path="res://objects/bullet/bullet.gd" id="1_ofkrt"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ofkrt"]
+radius = 0.12
+height = 0.25
+radial_segments = 8
+rings = 12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmo65"]
+albedo_color = Color(0.28, 0.382667, 0.5, 1)
+metallic = 1.0
+roughness = 0.28
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g08x3"]
+radius = 0.13
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofkrt"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.901333, 0.63, 0.219608)
+emission_enabled = true
+emission = Color(0.26, 0.0606667, 0, 1)
+emission_energy_multiplier = 7.01
+
+[sub_resource type="SphereMesh" id="SphereMesh_g08x3"]
+radius = 0.113
+height = 0.224
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_ofkrt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0561798), -1.28272, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ofkrt"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="Bullet" type="RigidBody3D" groups=["bullets"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_ofkrt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ofkrt")
+surface_material_override/0 = SubResource("StandardMaterial3D_kmo65")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+shape = SubResource("SphereShape3D_g08x3")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ofkrt")
+amount = 100
+lifetime = 0.14
+mesh = SubResource("SphereMesh_g08x3")
+gravity = Vector3(0, 0, 0)
+scale_amount_curve = SubResource("Curve_ofkrt")
+color_ramp = SubResource("Gradient_ofkrt")

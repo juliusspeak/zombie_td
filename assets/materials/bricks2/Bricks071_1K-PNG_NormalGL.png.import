@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dpb1jfhy2u5d0"
+path.bptc="res://.godot/imported/Bricks071_1K-PNG_NormalGL.png-1311826316d0a62a95d312405cf2ced4.bptc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/materials/bricks2/Bricks071_1K-PNG_NormalGL.png"
+dest_files=["res://.godot/imported/Bricks071_1K-PNG_NormalGL.png-1311826316d0a62a95d312405cf2ced4.bptc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=true
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/materials/bricks2/Bricks071_1K-PNG_NormalGL.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

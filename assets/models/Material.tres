@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://8xxvmsa3ko76"]
+
+[ext_resource type="Texture2D" uid="uid://bmqat4dahbg4u" path="res://assets/models/big_zobmie_big_zombie.png" id="1_4okq3"]
+[ext_resource type="Texture2D" uid="uid://cnq0tc4gpalqa" path="res://assets/models/zobmie_roughnes.png" id="2_n1gfh"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_4okq3")
+metallic_texture = ExtResource("2_n1gfh")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_n1gfh")
+roughness_texture_channel = 1

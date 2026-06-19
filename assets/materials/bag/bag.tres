@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dykvs2qw2v8fn"]
+
+[ext_resource type="Texture2D" uid="uid://dbyjnbv3lhd0g" path="res://assets/materials/bag/bag.png" id="1_ldkll"]
+[ext_resource type="Texture2D" uid="uid://bn0m2ilf4ic8q" path="res://assets/materials/bag/bag_normal.png" id="2_nkmdu"]
+
+[resource]
+albedo_texture = ExtResource("1_ldkll")
+normal_enabled = true
+normal_texture = ExtResource("2_nkmdu")
+uv1_scale = Vector3(0.26, 0.26, 0.26)
+uv1_triplanar = true

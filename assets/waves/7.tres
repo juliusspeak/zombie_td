@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://c41k5is3ecps3"]
+
+[ext_resource type="Resource" uid="uid://cvofmrm81x2db" path="res://assets/waves/pack/big10_0.5.tres" id="1_coc3d"]
+[ext_resource type="Script" uid="uid://3aactw14fmsi" path="res://scripts/classes/wave.gd" id="4_a26jp"]
+
+[resource]
+script = ExtResource("4_a26jp")
+packs = [ExtResource("1_coc3d")]
+metadata/_custom_type_script = "uid://3aactw14fmsi"

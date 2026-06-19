@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cjsi1sumpc0ig"]
+
+[ext_resource type="Texture2D" uid="uid://cvq7qy1s0oajk" path="res://assets/materials/bricks2/Bricks071_1K-PNG_Color.png" id="1_6hgqo"]
+[ext_resource type="Texture2D" uid="uid://dpb1jfhy2u5d0" path="res://assets/materials/bricks2/Bricks071_1K-PNG_NormalGL.png" id="2_7r3ak"]
+[ext_resource type="Texture2D" uid="uid://c03lfi2thb8j" path="res://assets/materials/bricks2/Bricks071_1K-PNG_Roughness.png" id="3_7uys0"]
+
+[resource]
+albedo_texture = ExtResource("1_6hgqo")
+roughness_texture = ExtResource("3_7uys0")
+normal_enabled = true
+normal_texture = ExtResource("2_7r3ak")
+uv1_scale = Vector3(-0.215, -0.215, -0.215)
+uv1_triplanar = true

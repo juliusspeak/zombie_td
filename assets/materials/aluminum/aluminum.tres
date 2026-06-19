@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://chaqiqq2wqv3n"]
+
+[ext_resource type="Texture2D" uid="uid://begc52vas2c2k" path="res://assets/materials/aluminum/worn-aluminum_albedo.png" id="1_cawws"]
+[ext_resource type="Texture2D" uid="uid://coaehud6akk33" path="res://assets/materials/aluminum/worn-aluminum_metallic.png" id="2_5gs7a"]
+[ext_resource type="Texture2D" uid="uid://bnu6sum7oxtke" path="res://assets/materials/aluminum/worn-aluminum_normal-ogl.png" id="2_aok8f"]
+[ext_resource type="Texture2D" uid="uid://b0hgbjepv0ewi" path="res://assets/materials/aluminum/worn-aluminum_roughness.png" id="3_5gs7a"]
+
+[resource]
+albedo_texture = ExtResource("1_cawws")
+metallic = 1.0
+metallic_texture = ExtResource("2_5gs7a")
+roughness_texture = ExtResource("3_5gs7a")
+normal_enabled = true
+normal_texture = ExtResource("2_aok8f")
+uv1_triplanar = true

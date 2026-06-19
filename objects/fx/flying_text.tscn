@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6apcfcqxjnvj"]
+
+[ext_resource type="Script" uid="uid://lgmx5lmhkyqr" path="res://objects/fx/flying_text.gd" id="1_fg31t"]
+
+[node name="FlyingText" type="Label3D"]
+billboard = 1
+no_depth_test = true
+text = "11"
+font_size = 90
+outline_size = 22
+script = ExtResource("1_fg31t")

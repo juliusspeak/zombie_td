@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://kuvrsdg1t1lx"]
+
+[ext_resource type="Texture2D" uid="uid://cckq2vxwgtxd4" path="res://assets/materials/warning/warning.png" id="1_l20an"]
+[ext_resource type="Texture2D" uid="uid://coaehud6akk33" path="res://assets/materials/aluminum/worn-aluminum_metallic.png" id="2_njclv"]
+[ext_resource type="Texture2D" uid="uid://dduaw0fontn7e" path="res://assets/materials/dark_metal/Metal046B_1K-PNG_NormalGL.png" id="3_tf6un"]
+[ext_resource type="Texture2D" uid="uid://ceq05nnrpaylv" path="res://assets/materials/dark_metal/Metal046B_1K-PNG_Roughness.png" id="4_t8ovd"]
+
+[resource]
+albedo_texture = ExtResource("1_l20an")
+metallic = 1.0
+metallic_texture = ExtResource("2_njclv")
+roughness_texture = ExtResource("4_t8ovd")
+normal_enabled = true
+normal_texture = ExtResource("3_tf6un")
+uv1_offset = Vector3(0, 0, -2.005)
+uv1_triplanar = true

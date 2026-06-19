@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=3 format=3 uid="uid://1eolpox3ylcn"]
+
+[ext_resource type="Resource" uid="uid://jaq25v43p3ha" path="res://assets/waves/pack/zomb6_1_2.tres" id="1_rlmqr"]
+[ext_resource type="Script" uid="uid://3aactw14fmsi" path="res://scripts/classes/wave.gd" id="2_gglu1"]
+
+[resource]
+script = ExtResource("2_gglu1")
+packs = [ExtResource("1_rlmqr")]
+metadata/_custom_type_script = "uid://3aactw14fmsi"

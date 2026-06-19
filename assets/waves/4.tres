@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Wave" load_steps=4 format=3 uid="uid://dpwoswv8nq3bi"]
+
+[ext_resource type="Resource" uid="uid://urbpoup8prba" path="res://assets/waves/pack/big1_1.tres" id="1_s6kq1"]
+[ext_resource type="Resource" uid="uid://bnmu25jyo3ydd" path="res://assets/waves/pack/zomb15_0_5.tres" id="2_3fjp4"]
+[ext_resource type="Script" uid="uid://3aactw14fmsi" path="res://scripts/classes/wave.gd" id="2_s6kq1"]
+
+[resource]
+script = ExtResource("2_s6kq1")
+packs = [ExtResource("1_s6kq1"), ExtResource("2_3fjp4")]
+metadata/_custom_type_script = "uid://3aactw14fmsi"

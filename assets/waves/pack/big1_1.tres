@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MobPack" load_steps=2 format=3 uid="uid://urbpoup8prba"]
+
+[ext_resource type="Script" uid="uid://5qdudx5lf3ab" path="res://scripts/classes/mob_pack.gd" id="1_01thk"]
+
+[resource]
+script = ExtResource("1_01thk")
+mob_name = "big_zombie"
+count = 1
+spawn_delay = 1.0
+metadata/_custom_type_script = "uid://5qdudx5lf3ab"

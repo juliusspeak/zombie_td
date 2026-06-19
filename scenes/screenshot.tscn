@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw672ffc2upfl"]
+
+[ext_resource type="PackedScene" uid="uid://dt6xogpplimwb" path="res://objects/big_gun/big_gun.tscn" id="1_35xrs"]
+[ext_resource type="PackedScene" uid="uid://j2pe3kf7db7q" path="res://objects/mid_gun/mid_gun.tscn" id="2_i1l47"]
+[ext_resource type="PackedScene" uid="uid://c8yovl0njwk3a" path="res://objects/sml_gun/sml_gun.tscn" id="3_frrrk"]
+
+[sub_resource type="Environment" id="Environment_35xrs"]
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.21
+
+[node name="Screenshot" type="Node3D"]
+
+[node name="BigGun" parent="." instance=ExtResource("1_35xrs")]
+visible = false
+
+[node name="MidGun" parent="." instance=ExtResource("2_i1l47")]
+visible = false
+
+[node name="SmlGun" parent="." instance=ExtResource("3_frrrk")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_35xrs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.612372, -0.707107, 0.353553, -0.5, -3.78552e-08, 0.866025, -0.612372, -0.707107, -0.353553, 8.44022, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.633733, -0.754058, 0.172567, 0.163266, 0.348444, 0.923001, -0.756127, -0.556761, 0.343932, 5.96272, 21.3996, 10.9818)
+light_color = Color(0.0333333, 0, 1, 1)
+light_energy = 9.497
+spot_range = 48.4089
+spot_angle = 31.6175
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.505615, 0.8344, -0.219386, 0.476392, 0.482014, 0.735332, 0.719309, 0.267281, -0.641214, -1.65616, 15.4351, -15.4748)
+light_color = Color(1, 0, 0, 1)
+light_energy = 6.172
+spot_range = 48.4089
+spot_angle = 26.2107
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.707107, -0.183013, 0.683013, 2.26267e-08, 0.965926, 0.258819, -0.707107, 0.183013, -0.683013, 2.73586, 2.2426, -2.7794)
+projection = 1
+size = 3.165

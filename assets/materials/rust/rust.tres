@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dsqmxskb1d6wn"]
+
+[ext_resource type="Texture2D" uid="uid://ceege7n1ad6pv" path="res://assets/materials/rust/rusty-metal_albedo.png" id="1_7pp0q"]
+[ext_resource type="Texture2D" uid="uid://c8vvbyprgmyi4" path="res://assets/materials/rust/rusty-metal_metallic.png" id="2_hf3cg"]
+[ext_resource type="Texture2D" uid="uid://c0jduw2864emv" path="res://assets/materials/rust/rusty-metal_normal-ogl.png" id="3_4u1tc"]
+[ext_resource type="Texture2D" uid="uid://vse6lmiipsdv" path="res://assets/materials/rust/rusty-metal_roughness.png" id="4_0euuy"]
+
+[resource]
+albedo_texture = ExtResource("1_7pp0q")
+metallic = 1.0
+metallic_texture = ExtResource("2_hf3cg")
+roughness_texture = ExtResource("4_0euuy")
+normal_enabled = true
+normal_texture = ExtResource("3_4u1tc")
+uv1_scale = Vector3(0.159, 0.159, 0.159)
+uv1_triplanar = true

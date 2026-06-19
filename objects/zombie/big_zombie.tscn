@@ -1,0 +1,187 @@
+[gd_scene load_steps=14 format=3 uid="uid://cssh4cfq2m2bb"]
+
+[ext_resource type="Script" uid="uid://ciqlt301nf4f4" path="res://objects/zombie/zombie.gd" id="1_2thic"]
+[ext_resource type="Material" uid="uid://8xxvmsa3ko76" path="res://assets/models/Material.tres" id="3_a5mkf"]
+[ext_resource type="PackedScene" uid="uid://3gj3o8t2q3gx" path="res://assets/models/ big_zobmie.glb" id="5_8dn4b"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_a5mkf"]
+radius = 0.125
+height = 0.365
+radial_segments = 4
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2thic"]
+albedo_color = Color(0.42, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_a5mkf"]
+size = Vector3(0.08, 0.425, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dn4b"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8psf6"]
+height = 1.67765
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mytkl"]
+height = 1.68555
+radius = 0.693848
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mytkl"]
+transparency = 1
+albedo_color = Color(0.68, 0, 0, 0.796078)
+emission = Color(0.41, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mytkl"]
+radius = 0.125
+height = 0.25
+radial_segments = 12
+rings = 4
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mytkl"]
+resource_local_to_scene = true
+size = Vector2(1.5, 0.205)
+orientation = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhg6p"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+billboard_mode = 1
+
+[node name="Zombie" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "model", "anim_player", "blood_particle", "lifebar", "mesh_for_mat") groups=["mob"]]
+collision_layer = 2
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_2thic")
+nav_agent = NodePath("NavigationAgent3D")
+model = NodePath(" big_zobmie")
+anim_player = NodePath(" big_zobmie/AnimationPlayer")
+blood_particle = NodePath("blood_particle")
+lifebar = NodePath("lifebar")
+speed = 1.0
+hp = 1000
+reward = 20
+mesh_for_mat = NodePath(" big_zobmie/Armature/Skeleton3D/head/head")
+
+[node name=" big_zobmie" parent="." instance=ExtResource("5_8dn4b")]
+transform = Transform3D(0.895, 0, 0, 0, 0.895, 0, 0, 0, 0.895, 0, 0.950571, 0)
+
+[node name="head" parent=" big_zobmie/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.44632, -2.13163e-14, -1.24345e-14, 7.10543e-15, 0.43935, 0.0785678, 6.21725e-15, -0.0785678, 0.43935, -6.21725e-15, 0.981825, -0.51974)
+
+[node name="head" parent=" big_zobmie/Armature/Skeleton3D/head" index="0"]
+surface_material_override/0 = ExtResource("3_a5mkf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent=" big_zobmie/Armature/Skeleton3D/head/head" index="0"]
+transform = Transform3D(0.939974, -0.106634, 0.324156, 0.145355, 0.984552, -0.0976178, -0.30874, 0.138876, 0.940953, 0.525392, 0.0460942, -0.586429)
+mesh = SubResource("SphereMesh_a5mkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_2thic")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent=" big_zobmie/Armature/Skeleton3D/head/head" index="1"]
+transform = Transform3D(0.847548, 0.167696, 0.50353, -0.0591583, -0.912999, 0.403644, 0.527411, -0.371895, -0.76389, 0.398804, -0.723263, -0.487735)
+mesh = SubResource("PrismMesh_a5mkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_8dn4b")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent=" big_zobmie/Armature/Skeleton3D/head/head" index="2"]
+transform = Transform3D(0.960506, 0.141872, 0.239374, 0.0646299, -0.950475, 0.303999, 0.270645, -0.276522, -0.922107, 0.233691, -0.716251, -0.508907)
+mesh = SubResource("PrismMesh_a5mkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_8dn4b")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent=" big_zobmie/Armature/Skeleton3D/head/head" index="3"]
+transform = Transform3D(0.9699, -0.0679944, 0.233819, -0.128997, -0.957885, 0.256536, 0.206526, -0.278976, -0.937824, 0.0299329, -0.69093, -0.585373)
+mesh = SubResource("PrismMesh_a5mkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_8dn4b")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent=" big_zobmie/Armature/Skeleton3D/head/head" index="4"]
+transform = Transform3D(0.989253, -0.104232, -0.102527, -0.0733445, -0.960421, 0.268712, -0.126482, -0.258304, -0.957747, -0.161421, -0.69093, -0.585373)
+mesh = SubResource("PrismMesh_a5mkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_8dn4b")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent=" big_zobmie/Armature/Skeleton3D/head/head" index="5"]
+transform = Transform3D(0.894945, -0.0760863, -0.439636, 0.0597926, -0.956008, 0.287169, -0.44215, -0.283288, -0.851028, -0.373107, -0.712331, -0.520744)
+mesh = SubResource("PrismMesh_a5mkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_8dn4b")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent=" big_zobmie/Armature/Skeleton3D/head/head" index="6"]
+transform = Transform3D(0.995993, 0.0893843, -0.00296928, -0.0877318, 0.970055, -0.226485, -0.0173638, 0.225838, 0.97401, -0.366465, -0.00125432, -0.662191)
+mesh = SubResource("SphereMesh_a5mkf")
+surface_material_override/0 = SubResource("StandardMaterial3D_2thic")
+
+[node name="l3" parent=" big_zobmie/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.883867, -0.0104168, -0.467623, 8.66354e-05, 0.999756, -0.0221068, 0.467739, 0.0194989, 0.883651, 0.232861, 0.725107, 0.484729)
+
+[node name="l3" parent=" big_zobmie/Armature/Skeleton3D/l3" index="0"]
+surface_material_override/0 = ExtResource("3_a5mkf")
+
+[node name="l2" parent=" big_zobmie/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.883866, -0.0104167, -0.467623, 8.64491e-05, 0.999756, -0.0221071, 0.467739, 0.0194994, 0.883651, 0.232861, 0.725107, 0.484729)
+
+[node name="l2" parent=" big_zobmie/Armature/Skeleton3D/l2" index="0"]
+surface_material_override/0 = ExtResource("3_a5mkf")
+
+[node name="l4" parent=" big_zobmie/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.883867, -0.010417, -0.467623, 8.67359e-05, 0.999755, -0.0221071, 0.467739, 0.0194992, 0.883651, 0.232861, 0.725107, 0.484729)
+
+[node name="l4" parent=" big_zobmie/Armature/Skeleton3D/l4" index="0"]
+surface_material_override/0 = ExtResource("3_a5mkf")
+
+[node name="l1" parent=" big_zobmie/Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.883866, -0.010417, -0.467623, 8.68887e-05, 0.999756, -0.0221068, 0.467739, 0.0194988, 0.883651, 0.232861, 0.725107, 0.484729)
+
+[node name="l1" parent=" big_zobmie/Armature/Skeleton3D/l1" index="0"]
+surface_material_override/0 = ExtResource("3_a5mkf")
+
+[node name="arm_r" parent=" big_zobmie/Armature/Skeleton3D" index="5"]
+transform = Transform3D(0.268354, 1.86265e-08, -6.98492e-10, -2.04891e-08, 0.714321, 4.84288e-08, 1.95578e-08, -1.11759e-07, 0.239039, 0.873168, 0.268107, -0.0423512)
+
+[node name="arm_r" parent=" big_zobmie/Armature/Skeleton3D/arm_r" index="0"]
+surface_material_override/0 = ExtResource("3_a5mkf")
+
+[node name="arm_l" parent=" big_zobmie/Armature/Skeleton3D" index="6"]
+transform = Transform3D(0.268354, 1.39e-07, -3.72529e-09, -3.96394e-08, 0.714321, 9.31323e-10, -1.86265e-09, -1.86265e-09, 0.239039, 0.873168, 0.268107, -0.0423512)
+
+[node name="arm_l" parent=" big_zobmie/Armature/Skeleton3D/arm_l" index="0"]
+surface_material_override/0 = ExtResource("3_a5mkf")
+
+[node name="body" parent=" big_zobmie/Armature/Skeleton3D" index="7"]
+transform = Transform3D(1, -1.61559e-24, -3.10193e-25, 1.61559e-24, 1, 0, 3.10193e-25, 0, 1, -6.97934e-25, 0.71338, -9.8953e-09)
+
+[node name="body" parent=" big_zobmie/Armature/Skeleton3D/body" index="0"]
+surface_material_override/0 = ExtResource("3_a5mkf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999966, -0.00829022, 0, 0.00829022, 0.999966, 0, 0.835956, 0)
+shape = SubResource("CapsuleShape3D_8psf6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="damage_area" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="damage_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.842773, 0)
+shape = SubResource("CylinderShape3D_mytkl")
+
+[node name="blood_particle" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.897658, 0)
+material_override = SubResource("StandardMaterial3D_mytkl")
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("SphereMesh_mytkl")
+direction = Vector3(0, 1, 0)
+spread = 136.26
+gravity = Vector3(0, -40, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_min = 0.2
+
+[node name="lifebar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0)
+visible = false
+mesh = SubResource("PlaneMesh_mytkl")
+surface_material_override/0 = SubResource("StandardMaterial3D_qhg6p")
+
+[connection signal="body_entered" from="damage_area" to="." method="_on_damage_area_body_entered"]
+
+[editable path=" big_zobmie"]

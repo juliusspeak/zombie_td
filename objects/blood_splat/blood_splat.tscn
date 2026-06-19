@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgbpnqtyqhuir"]
+
+[ext_resource type="Script" uid="uid://cfuhmewmt44h1" path="res://objects/blood_splat/blood_splat.gd" id="1_piouc"]
+[ext_resource type="AudioStream" uid="uid://dacme6t8jd4i5" path="res://assets/audio/flesh.wav" id="2_dmyek"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qhg6p"]
+radius = 1.05
+height = 0.225
+radial_segments = 13
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mytkl"]
+transparency = 1
+albedo_color = Color(0.68, 0, 0, 0.796078)
+emission = Color(0.41, 0, 0, 1)
+
+[node name="blood_splat" type="Node3D"]
+transform = Transform3D(0.535, 0, 0, 0, 0.535, 0, 0, 0, 0.535, 0, 0, 0)
+visible = false
+script = ExtResource("1_piouc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08893, -2.38419e-07, 0.0189515)
+mesh = SubResource("SphereMesh_qhg6p")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mytkl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.715, 0, 0, 0, 0.715, 0, 0, 0, 0.715, -1.02863, 4.76837e-07, 0.127196)
+mesh = SubResource("SphereMesh_qhg6p")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mytkl")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.47, 0, 0, 0, 0.47, 0, 0, 0, 0.47, 0.551164, 2.38419e-07, -0.609275)
+mesh = SubResource("SphereMesh_qhg6p")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_mytkl")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dmyek")
+bus = &"SFX"
