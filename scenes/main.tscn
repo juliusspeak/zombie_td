@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://dv138vyx77281"]
+[gd_scene format=3 uid="uid://dv138vyx77281"]
 
 [ext_resource type="Material" uid="uid://dbitdxhsd76xd" path="res://assets/materials/asphalt/asphalt.tres" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://cf13aumfwltjo" path="res://scenes/main.gd" id="1_sugp2"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://dbu7v3idwawnp" path="res://scripts/global/sound.gd" id="27_fv21b"]
 [ext_resource type="Texture2D" uid="uid://kf8c8nqs348j" path="res://assets/images/ui/sfx.png" id="28_dgi5k"]
 [ext_resource type="AudioStream" uid="uid://2jymysqh0hpq" path="res://assets/audio/chrmbchrmb - matrix (BL studio loop) - EUPHXRIA.mp3" id="29_yq6so"]
+[ext_resource type="PackedScene" uid="uid://d3lwarr54mfr4" path="res://scenes/particles_cache.tscn" id="34_dgi5k"]
 
 [sub_resource type="Environment" id="Environment_o6xl0"]
 adjustment_enabled = true
@@ -95,27 +96,27 @@ fill_to = Vector2(0, 1)
 bg_color = Color(0, 0, 0, 0)
 shadow_size = 50
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8jky"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmb1v"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fuf3a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pibwh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6pm6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5he1u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5poiv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cjbq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chjal"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vchkt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjqg0"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vchkt"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chjal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cjbq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5poiv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5he1u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c6pm6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pibwh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fuf3a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kmb1v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8jky"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
 shader = ExtResource("7_tipki")
@@ -130,16 +131,16 @@ shader_parameter/chromatic_aberration_strength = 0.002
 shader_parameter/vignette_strength = 0.8
 shader_parameter/vignette_radius = 0.9
 
-[node name="main" type="Node"]
+[node name="main" type="Node" unique_id=1285619222]
 script = ExtResource("1_sugp2")
 
-[node name="controller" type="Node" parent="." node_paths=PackedStringArray("data", "mob_controller", "build_controller")]
+[node name="controller" type="Node" parent="." unique_id=361416974 node_paths=PackedStringArray("data", "mob_controller", "build_controller")]
 script = ExtResource("2_muem4")
 data = NodePath("../data")
 mob_controller = NodePath("../mob_controller")
 build_controller = NodePath("../build_controller")
 
-[node name="data" type="Node" parent="."]
+[node name="data" type="Node" parent="." unique_id=1276293503]
 script = ExtResource("2_trceg")
 start_money = 21
 start_hp = 10
@@ -154,13 +155,13 @@ mob_scenes = Dictionary[String, PackedScene]({
 })
 waves = [ExtResource("5_0ld40"), ExtResource("6_gqmmt"), ExtResource("7_yc10j"), ExtResource("7_yc10j"), ExtResource("8_y6deb"), ExtResource("9_og1vs"), ExtResource("10_2wyq8"), ExtResource("12_2wyq8")]
 
-[node name="mob_controller" type="Node" parent="." node_paths=PackedStringArray("controller", "mob_start", "mob_end")]
+[node name="mob_controller" type="Node" parent="." unique_id=650230723 node_paths=PackedStringArray("controller", "mob_start", "mob_end")]
 script = ExtResource("5_tbgi4")
 controller = NodePath("../controller")
 mob_start = NodePath("../world/mob_start")
 mob_end = NodePath("../world/mob_end")
 
-[node name="build_controller" type="Node3D" parent="." node_paths=PackedStringArray("ui", "controller", "data", "y_decal", "x_decal", "mob_start", "mob_end", "nav_region", "build_audio", "demolish_audio")]
+[node name="build_controller" type="Node3D" parent="." unique_id=1890583823 node_paths=PackedStringArray("ui", "controller", "data", "y_decal", "x_decal", "mob_start", "mob_end", "nav_region", "build_audio", "demolish_audio")]
 script = ExtResource("3_tefeu")
 ui = NodePath("../ui")
 controller = NodePath("../controller")
@@ -178,114 +179,114 @@ builds = Dictionary[String, PackedScene]({
 build_audio = NodePath("../sound/build")
 demolish_audio = NodePath("../sound/demolish")
 
-[node name="world" type="Node3D" parent="."]
+[node name="world" type="Node3D" parent="." unique_id=1979899610]
 
-[node name="settings" type="Node3D" parent="world"]
+[node name="settings" type="Node3D" parent="world" unique_id=463180667]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="world/settings"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="world/settings" unique_id=1505083573]
 environment = SubResource("Environment_o6xl0")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world/settings"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="world/settings" unique_id=1456138441]
 transform = Transform3D(0.556319, -0.483331, 0.675944, 0.541689, 0.827788, 0.146083, -0.630145, 0.284883, 0.722329, -1.77652, 2.35661, 0)
 light_color = Color(1, 0.953333, 0.86, 1)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="world/settings"]
+[node name="Camera3D" type="Camera3D" parent="world/settings" unique_id=1585408163]
 transform = Transform3D(1, 0, 0, 0, 0.704659, 0.709546, 0, -0.709546, 0.704659, 3.739, 9.322, 8.902)
 projection = 1
 size = 15.721
 
-[node name="floor" type="StaticBody3D" parent="world/settings"]
+[node name="floor" type="StaticBody3D" parent="world/settings" unique_id=1683430954]
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/settings/floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/settings/floor" unique_id=150911106]
 shape = SubResource("WorldBoundaryShape3D_0wfyh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/settings/floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world/settings/floor" unique_id=635853734]
 mesh = SubResource("PlaneMesh_o5qli")
 surface_material_override/0 = ExtResource("1_0wfyh")
 
-[node name="borders" type="Node3D" parent="world/settings"]
+[node name="borders" type="Node3D" parent="world/settings" unique_id=187743464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="world/settings/borders" groups=["navigation_mesh_source_group"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="world/settings/borders" unique_id=385618088 groups=["navigation_mesh_source_group"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6, 0, 0)
 mesh = SubResource("BoxMesh_sugp2")
 surface_material_override/0 = ExtResource("3_jyhfs")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="world/settings/borders"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="world/settings/borders" unique_id=1325407029]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7, 0, 0)
 mesh = SubResource("BoxMesh_sugp2")
 surface_material_override/0 = ExtResource("3_jyhfs")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="world/settings/borders"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="world/settings/borders" unique_id=59062736]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -9.5)
 mesh = SubResource("BoxMesh_jyhfs")
 surface_material_override/0 = ExtResource("3_jyhfs")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="world/settings/borders"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="world/settings/borders" unique_id=637885185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 9.5)
 mesh = SubResource("BoxMesh_jyhfs")
 surface_material_override/0 = ExtResource("3_jyhfs")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="world/settings"]
+[node name="SpotLight3D" type="SpotLight3D" parent="world/settings" unique_id=787426377]
 transform = Transform3D(0.971691, 0.10514, -0.21157, 0.163266, 0.348444, 0.923001, 0.170765, -0.931414, 0.321414, -7.39804, 21.3996, 7.66673)
 light_color = Color(0.0333333, 0, 1, 1)
 light_energy = 9.497
 spot_range = 48.4089
 spot_angle = 31.6175
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="world/settings"]
+[node name="SpotLight3D2" type="SpotLight3D" parent="world/settings" unique_id=483873693]
 transform = Transform3D(-0.875747, 0.185728, 0.445615, 0.476392, 0.482014, 0.735332, -0.0782213, 0.856252, -0.510602, 11.7046, 15.4351, -12.1597)
 light_color = Color(1, 0, 0, 1)
 light_energy = 6.172
 spot_range = 48.4089
 spot_angle = 26.2107
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="world/settings"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="world/settings" unique_id=783791766]
 navigation_mesh = SubResource("NavigationMesh_sugp2")
 
-[node name="nav_collider" type="StaticBody3D" parent="world/settings" groups=["navigation_mesh_source_group"]]
+[node name="nav_collider" type="StaticBody3D" parent="world/settings" unique_id=811404591 groups=["navigation_mesh_source_group"]]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/settings/nav_collider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/settings/nav_collider" unique_id=2063623507]
 shape = SubResource("BoxShape3D_tefeu")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="world/settings/nav_collider"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="world/settings/nav_collider" unique_id=992778793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -10)
 shape = SubResource("BoxShape3D_o6xl0")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="world/settings/nav_collider"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="world/settings/nav_collider" unique_id=1188103157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 10)
 shape = SubResource("BoxShape3D_o6xl0")
 
-[node name="mob_start" type="Node3D" parent="world"]
+[node name="mob_start" type="Node3D" parent="world" unique_id=1344691735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, -10.5)
 
-[node name="mob_end" type="Node3D" parent="world"]
+[node name="mob_end" type="Node3D" parent="world" unique_id=862650599]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 10.3)
 
-[node name="y_decal" type="Decal" parent="world"]
+[node name="y_decal" type="Decal" parent="world" unique_id=1948064550]
 size = Vector3(19, 0.792, 2)
 texture_albedo = SubResource("GradientTexture1D_o6xl0")
 modulate = Color(0, 0, 0, 1)
 albedo_mix = 0.5
 
-[node name="x_decal" type="Decal" parent="world"]
+[node name="x_decal" type="Decal" parent="world" unique_id=1473752682]
 size = Vector3(2, 0.792, 18)
 texture_albedo = SubResource("GradientTexture1D_o6xl0")
 modulate = Color(0, 0, 0, 1)
 albedo_mix = 0.5
 
-[node name="DamageArea" type="Area3D" parent="world"]
+[node name="DamageArea" type="Area3D" parent="world" unique_id=494196300]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 10.7341)
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/DamageArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/DamageArea" unique_id=2072205973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720276, 0)
 shape = SubResource("BoxShape3D_yc10j")
 
-[node name="ui" type="Control" parent="." node_paths=PackedStringArray("controller", "build_controller", "data", "x_label", "y_label", "money_label", "wave_label", "hp_label", "sml_gun_button", "mid_gun_button", "big_gun_button", "sml_gun_label", "mid_gun_label", "big_gun_label", "start_button")]
+[node name="ui" type="Control" parent="." unique_id=2012182814 node_paths=PackedStringArray("controller", "build_controller", "data", "x_label", "y_label", "money_label", "wave_label", "hp_label", "sml_gun_button", "mid_gun_button", "big_gun_button", "sml_gun_label", "mid_gun_label", "big_gun_label", "start_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -310,7 +311,7 @@ mid_gun_label = NodePath("Panel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxC
 big_gun_label = NodePath("Panel/VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer/BigGunLabel")
 start_button = NodePath("Panel/VBoxContainer/Button")
 
-[node name="Panel" type="Panel" parent="ui"]
+[node name="Panel" type="Panel" parent="ui" unique_id=782892769]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -324,7 +325,7 @@ offset_bottom = 335.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ui/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/Panel" unique_id=1635630332]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -336,27 +337,27 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ui/Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="ui/Panel/VBoxContainer" unique_id=1930018952]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "key_construction"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer" unique_id=965955487]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer" unique_id=799379145]
 layout_mode = 2
 
-[node name="SmlGunButton" type="Button" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="SmlGunButton" type="Button" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=327529809]
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 focus_mode = 0
 icon = ExtResource("7_choun")
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer/SmlGunButton"]
+[node name="TextureRect" type="TextureRect" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer/SmlGunButton" unique_id=1020363948]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -366,34 +367,34 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_muem4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=442365046]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=260062443]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.61, 0.132167, 1)
 theme_override_font_sizes/font_size = 30
 text = "$"
 horizontal_alignment = 1
 
-[node name="SmlGunLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="SmlGunLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=367176767]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "10"
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer" unique_id=135431138]
 layout_mode = 2
 
-[node name="MidGunButton" type="Button" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="MidGunButton" type="Button" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1088235702]
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 focus_mode = 0
 icon = ExtResource("8_ya4ey")
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2/MidGunButton"]
+[node name="TextureRect" type="TextureRect" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2/MidGunButton" unique_id=832647155]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -403,34 +404,34 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_muem4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=720531573]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=277451918]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.61, 0.132167, 1)
 theme_override_font_sizes/font_size = 30
 text = "$"
 horizontal_alignment = 1
 
-[node name="MidGunLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="MidGunLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1197348058]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer" unique_id=635055131]
 layout_mode = 2
 
-[node name="BigGunButton" type="Button" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="BigGunButton" type="Button" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1054489742]
 custom_minimum_size = Vector2(85, 85)
 layout_mode = 2
 focus_mode = 0
 icon = ExtResource("9_eb6dy")
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3/BigGunButton"]
+[node name="TextureRect" type="TextureRect" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3/BigGunButton" unique_id=148370466]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -440,74 +441,74 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_muem4")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=34863669]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=1314398002]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.61, 0.132167, 1)
 theme_override_font_sizes/font_size = 30
 text = "$"
 horizontal_alignment = 1
 
-[node name="BigGunLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer"]
+[node name="BigGunLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer" unique_id=1711628739]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "999"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ui/Panel/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui/Panel/VBoxContainer" unique_id=1219877880]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="ui/Panel/VBoxContainer/HBoxContainer2"]
+[node name="VSeparator" type="VSeparator" parent="ui/Panel/VBoxContainer/HBoxContainer2" unique_id=1223916349]
 layout_mode = 2
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ya4ey")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer2" unique_id=673885543]
 layout_mode = 2
 size_flags_horizontal = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1989527449]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.46, 0.19182, 0.1564, 1)
 theme_override_font_sizes/font_size = 42
 text = "X"
 
-[node name="Label2" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="Label2" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=904982545]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = ":"
 
-[node name="XLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="XLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer" unique_id=1783654555]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "0"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui/Panel/VBoxContainer/HBoxContainer2" unique_id=785350125]
 layout_mode = 2
 size_flags_horizontal = 2
 alignment = 1
 
-[node name="Label3" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer2"]
+[node name="Label3" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer2" unique_id=1300589578]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.1734, 0.2856, 0.51, 1)
 theme_override_font_sizes/font_size = 42
 text = "Y"
 
-[node name="Label2" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer2"]
+[node name="Label2" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer2" unique_id=1939493834]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = ":"
 
-[node name="YLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer2"]
+[node name="YLabel" type="Label" parent="ui/Panel/VBoxContainer/HBoxContainer2/HBoxContainer2" unique_id=1045442793]
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 text = "0"
 
-[node name="separator" type="TextureRect" parent="ui/Panel/VBoxContainer"]
+[node name="separator" type="TextureRect" parent="ui/Panel/VBoxContainer" unique_id=793902940]
 custom_minimum_size = Vector2(255.49, 10.7)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -515,7 +516,7 @@ texture = ExtResource("11_eb6dy")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer/separator"]
+[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer/separator" unique_id=1240740497]
 custom_minimum_size = Vector2(255.49, 10.7)
 layout_mode = 1
 anchors_preset = 5
@@ -529,56 +530,56 @@ grow_horizontal = 2
 texture = SubResource("GradientTexture2D_trceg")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ui/Panel/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/Panel/VBoxContainer" unique_id=664429329]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer" unique_id=1357102803]
 layout_mode = 2
 alignment = 1
 
-[node name="moneyLabel" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="moneyLabel" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=757213998]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "key_money"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer" unique_id=120309099]
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1171060548]
 layout_mode = 2
 
-[node name="VSeparator" type="VSeparator" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer" unique_id=245619521]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ya4ey")
 
-[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer" unique_id=254135861]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.61, 0.132167, 1)
 theme_override_font_sizes/font_size = 30
 text = "$"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1214087769]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="moneyLabel" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+[node name="moneyLabel" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer2" unique_id=135769599]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "100"
 horizontal_alignment = 1
 
-[node name="VSeparator" type="VSeparator" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+[node name="VSeparator" type="VSeparator" parent="ui/Panel/VBoxContainer/VBoxContainer/HBoxContainer3/HBoxContainer2" unique_id=998320277]
 layout_mode = 2
 theme_override_constants/separation = 10
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ya4ey")
 
-[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer"]
+[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer" unique_id=1931456271]
 custom_minimum_size = Vector2(255.49, 10.7)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -586,7 +587,7 @@ texture = ExtResource("11_eb6dy")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer/separator2"]
+[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer/separator2" unique_id=1881122760]
 custom_minimum_size = Vector2(255.49, 10.7)
 layout_mode = 1
 anchors_preset = 5
@@ -600,14 +601,14 @@ grow_horizontal = 2
 texture = SubResource("GradientTexture2D_trceg")
 expand_mode = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ui/Panel/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ui/Panel/VBoxContainer" unique_id=1860480283]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer2" unique_id=612050422]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1627591048]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.61, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -615,17 +616,17 @@ text = "key_wave"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer2"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer2" unique_id=14926813]
 layout_mode = 2
 alignment = 1
 
-[node name="waveLabel" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer2/HBoxContainer4"]
+[node name="waveLabel" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer2/HBoxContainer4" unique_id=1336822484]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
 
-[node name="separator3" type="TextureRect" parent="ui/Panel/VBoxContainer"]
+[node name="separator3" type="TextureRect" parent="ui/Panel/VBoxContainer" unique_id=1219944873]
 custom_minimum_size = Vector2(255.49, 10.7)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -633,7 +634,7 @@ texture = ExtResource("11_eb6dy")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer/separator3"]
+[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer/separator3" unique_id=1428963015]
 custom_minimum_size = Vector2(255.49, 10.7)
 layout_mode = 1
 anchors_preset = 5
@@ -647,14 +648,14 @@ grow_horizontal = 2
 texture = SubResource("GradientTexture2D_trceg")
 expand_mode = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ui/Panel/VBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="ui/Panel/VBoxContainer" unique_id=1381119876]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer3" unique_id=1076416892]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer3/HBoxContainer" unique_id=1231000533]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.87, 0.667, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -662,17 +663,17 @@ text = "key_hp"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer3"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="ui/Panel/VBoxContainer/VBoxContainer3" unique_id=1618511607]
 layout_mode = 2
 alignment = 1
 
-[node name="hpLabel" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer3/HBoxContainer4"]
+[node name="hpLabel" type="Label" parent="ui/Panel/VBoxContainer/VBoxContainer3/HBoxContainer4" unique_id=814186315]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
 
-[node name="separator4" type="TextureRect" parent="ui/Panel/VBoxContainer"]
+[node name="separator4" type="TextureRect" parent="ui/Panel/VBoxContainer" unique_id=1447044221]
 custom_minimum_size = Vector2(255.49, 10.7)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -680,7 +681,7 @@ texture = ExtResource("11_eb6dy")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer/separator4"]
+[node name="separator2" type="TextureRect" parent="ui/Panel/VBoxContainer/separator4" unique_id=1875982469]
 custom_minimum_size = Vector2(255.49, 10.7)
 layout_mode = 1
 anchors_preset = 5
@@ -694,12 +695,12 @@ grow_horizontal = 2
 texture = SubResource("GradientTexture2D_trceg")
 expand_mode = 1
 
-[node name="HSeparator" type="HSeparator" parent="ui/Panel/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="ui/Panel/VBoxContainer" unique_id=143948814]
 layout_mode = 2
 theme_override_constants/separation = 6
 theme_override_styles/separator = SubResource("StyleBoxEmpty_jbj1t")
 
-[node name="Button" type="Button" parent="ui/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="ui/Panel/VBoxContainer" unique_id=2120468535]
 modulate = Color(1, 0.88, 0.4, 1)
 custom_minimum_size = Vector2(245.605, 77.115)
 layout_mode = 2
@@ -709,7 +710,7 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 32
 text = "key_start"
 
-[node name="Panel2" type="Panel" parent="ui"]
+[node name="Panel2" type="Panel" parent="ui" unique_id=670191790]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 692.0
@@ -717,7 +718,7 @@ offset_right = 307.0
 offset_bottom = 735.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5q0nq")
 
-[node name="socialButtons" parent="ui" instance=ExtResource("26_tel4y")]
+[node name="socialButtons" parent="ui" unique_id=1000822216 instance=ExtResource("26_tel4y")]
 modulate = Color(1, 1, 1, 0.458824)
 layout_mode = 1
 anchors_preset = 2
@@ -730,7 +731,7 @@ offset_bottom = 11.0001
 grow_vertical = 0
 scale = Vector2(0.625, 0.625)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ui"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ui" unique_id=964471093]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -740,41 +741,41 @@ offset_top = -40.0
 offset_right = 81.0
 grow_vertical = 0
 
-[node name="musicButton" type="Button" parent="ui/HBoxContainer"]
+[node name="musicButton" type="Button" parent="ui/HBoxContainer" unique_id=1075071694]
 custom_minimum_size = Vector2(36.005, 29.905)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j8jky")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kmb1v")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_fuf3a")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pibwh")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c6pm6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5he1u")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_5poiv")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2cjbq")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_chjal")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cjqg0")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vchkt")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cjqg0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_chjal")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2cjbq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5poiv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5he1u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c6pm6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pibwh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fuf3a")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kmb1v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8jky")
 icon = ExtResource("27_5q0nq")
 expand_icon = true
 
-[node name="sfxButton" type="Button" parent="ui/HBoxContainer"]
+[node name="sfxButton" type="Button" parent="ui/HBoxContainer" unique_id=666847107]
 custom_minimum_size = Vector2(36.005, 29.905)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j8jky")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kmb1v")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_fuf3a")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pibwh")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c6pm6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5he1u")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_5poiv")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2cjbq")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_chjal")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cjqg0")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vchkt")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_cjqg0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_chjal")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2cjbq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5poiv")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5he1u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c6pm6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_pibwh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fuf3a")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_kmb1v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8jky")
 icon = ExtResource("28_dgi5k")
 expand_icon = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1352685521]
 material = SubResource("ShaderMaterial_o6xl0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -783,24 +784,27 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="sound" type="Node" parent="." node_paths=PackedStringArray("music_button", "sfx_button")]
+[node name="sound" type="Node" parent="." unique_id=466120722 node_paths=PackedStringArray("music_button", "sfx_button")]
 script = ExtResource("27_fv21b")
 music_button = NodePath("../ui/HBoxContainer/musicButton")
 sfx_button = NodePath("../ui/HBoxContainer/sfxButton")
 
-[node name="build" type="AudioStreamPlayer" parent="sound"]
+[node name="build" type="AudioStreamPlayer" parent="sound" unique_id=1331637292]
 stream = ExtResource("18_2f3dj")
 bus = &"SFX"
 
-[node name="demolish" type="AudioStreamPlayer" parent="sound"]
+[node name="demolish" type="AudioStreamPlayer" parent="sound" unique_id=1541584774]
 stream = ExtResource("19_yq6so")
 bus = &"SFX"
 
-[node name="music" type="AudioStreamPlayer" parent="sound"]
+[node name="music" type="AudioStreamPlayer" parent="sound" unique_id=1321474006]
 stream = ExtResource("29_yq6so")
 volume_db = -10.599
 autoplay = true
 bus = &"Music"
+
+[node name="ParticlesCash" parent="." unique_id=2018199776 instance=ExtResource("34_dgi5k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14302969, 0.049999237, -0.14283085)
 
 [connection signal="body_entered" from="world/DamageArea" to="controller" method="damage_area_entered"]
 [connection signal="pressed" from="ui/Panel/VBoxContainer/Button" to="ui" method="_on_button_pressed"]
