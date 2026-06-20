@@ -1,5 +1,5 @@
 # Simple Zombie TD
-
+![Gameplay Screenshot](screenshot.png)
 A simple top-down **tower defense** game where you fight off waves of zombies using strategically placed turrets
 
 ## Built With
